@@ -1,0 +1,45 @@
+﻿@model HR.entity.Models.FamilyDetail
+
+<h4>FamilyDetail</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="_FamilyDetailsPartial">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FamilyDetailsFullName" class="control-label"></label>
+                <input asp-for="FamilyDetailsFullName" class="form-control" />
+                <span asp-validation-for="FamilyDetailsFullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FamilyDetailsDob" class="control-label"></label>
+                <input asp-for="FamilyDetailsDob" class="form-control" />
+                <span asp-validation-for="FamilyDetailsDob" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FamilyDetailsGender" class="control-label"></label>
+                <input asp-for="FamilyDetailsGender" class="form-control" />
+                <span asp-validation-for="FamilyDetailsGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkrelativeTypeId" class="control-label"></label>
+                <select asp-for="FkrelativeTypeId" class ="form-control" asp-items="ViewBag.FkrelativeTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="FkemployeeId" class="control-label"></label>
+                <select asp-for="FkemployeeId" class ="form-control" asp-items="ViewBag.FkemployeeId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

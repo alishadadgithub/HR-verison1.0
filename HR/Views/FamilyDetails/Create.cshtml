@@ -1,0 +1,86 @@
+﻿@model HR.entity.Models.FamilyDetail
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+
+    <!-- Main content -->
+  <section class="content">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+ <div class="card">
+            <div class="card-header">
+                المعلومات الشخصية
+            </div>
+            <div class="card-body">
+                <div class="form-column">
+                        <div class="form-group col-md-1"><label>الإسم الكامل</label>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                @*<label asp-for="FamilyDetailsFullName" class="control-label"></label>*@
+                <input asp-for="FamilyDetailsFullName" class="form-control" />
+                <span asp-validation-for="FamilyDetailsFullName" class="text-danger"></span>
+                         </div>
+                    <div class="form-group col-md-1"><label>تاريخ الولادة</label>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                <input asp-for="FamilyDetailsDob" class="form-control" />
+                <span asp-validation-for="FamilyDetailsDob" class="text-danger"></span>
+            </div>
+                <div class="form-group col-md-1"><label>الجنس</label>
+                        </div>
+
+                        <div class="form-group col-md-3">
+                <input asp-for="FamilyDetailsGender" class="form-control" />
+                <span asp-validation-for="FamilyDetailsGender" class="text-danger"></span>
+                        </div>
+          
+                <div class="form-group col-md-1">
+                <label>صلة القرابة</label>
+                 </div>
+
+                        <div class="form-group col-md-3">
+                <select asp-for="FkrelativeTypeId" class ="form-control" asp-items="ViewBag.FkrelativeTypeId"></select>
+                         </div>
+           
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-rounded btn-primary float-right"><i class="fa fa-save ml-2"></i>حفظ</button>
+
+                                </div>
+                    </div>
+            </div>
+        
+
+
+</div>
+        
+            
+            
+            
+            </form> 
+
+
+
+ </section>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>

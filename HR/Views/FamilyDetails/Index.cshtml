@@ -1,0 +1,67 @@
+﻿@model IEnumerable<HR.entity.Models.FamilyDetail>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyDetailsFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyDetailsDob)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FamilyDetailsGender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fkemployee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FkrelativeType)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyDetailsFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyDetailsDob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyDetailsGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fkemployee.PkemployeeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FkrelativeType.PkrelativeTypeId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PkfamilyDetailsId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PkfamilyDetailsId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PkfamilyDetailsId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
